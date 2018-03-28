@@ -1,0 +1,14 @@
+J:\MyWork\test\SnippetTest\ASTNode\bin\Debug\ASTNode.exe.config
+J:\MyWork\test\SnippetTest\ASTNode\bin\Debug\ASTNode.exe
+J:\MyWork\test\SnippetTest\ASTNode\bin\Debug\ASTNode.pdb
+J:\MyWork\test\SnippetTest\ASTNode\obj\Debug\ASTNode.csprojResolveAssemblyReference.cache
+J:\MyWork\test\SnippetTest\ASTNode\obj\Debug\ASTNode.csproj.CoreCompileInputs.cache
+J:\MyWork\test\SnippetTest\ASTNode\obj\Debug\ASTNode.exe
+J:\MyWork\test\SnippetTest\ASTNode\obj\Debug\ASTNode.pdb
+E:\MyWork\TestsWorks\ASTTree\ASTNode\bin\Debug\ASTNode.exe.config
+E:\MyWork\TestsWorks\ASTTree\ASTNode\bin\Debug\ASTNode.exe
+E:\MyWork\TestsWorks\ASTTree\ASTNode\bin\Debug\ASTNode.pdb
+E:\MyWork\TestsWorks\ASTTree\ASTNode\obj\Debug\ASTNode.csprojResolveAssemblyReference.cache
+E:\MyWork\TestsWorks\ASTTree\ASTNode\obj\Debug\ASTNode.csproj.CoreCompileInputs.cache
+E:\MyWork\TestsWorks\ASTTree\ASTNode\obj\Debug\ASTNode.exe
+E:\MyWork\TestsWorks\ASTTree\ASTNode\obj\Debug\ASTNode.pdb

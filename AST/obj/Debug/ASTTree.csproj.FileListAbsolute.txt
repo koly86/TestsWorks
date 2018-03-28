@@ -1,0 +1,14 @@
+J:\MyWork\test\SnippetTest\SnippetTest\bin\Debug\SnippetTest.exe.config
+J:\MyWork\test\SnippetTest\SnippetTest\bin\Debug\SnippetTest.exe
+J:\MyWork\test\SnippetTest\SnippetTest\bin\Debug\SnippetTest.pdb
+J:\MyWork\test\SnippetTest\SnippetTest\obj\Debug\ASTTree.csprojResolveAssemblyReference.cache
+J:\MyWork\test\SnippetTest\SnippetTest\obj\Debug\ASTTree.csproj.CoreCompileInputs.cache
+J:\MyWork\test\SnippetTest\SnippetTest\obj\Debug\SnippetTest.exe
+J:\MyWork\test\SnippetTest\SnippetTest\obj\Debug\SnippetTest.pdb
+E:\MyWork\TestsWorks\ASTTree\AST\bin\Debug\SnippetTest.exe.config
+E:\MyWork\TestsWorks\ASTTree\AST\bin\Debug\SnippetTest.exe
+E:\MyWork\TestsWorks\ASTTree\AST\bin\Debug\SnippetTest.pdb
+E:\MyWork\TestsWorks\ASTTree\AST\obj\Debug\ASTTree.csprojResolveAssemblyReference.cache
+E:\MyWork\TestsWorks\ASTTree\AST\obj\Debug\ASTTree.csproj.CoreCompileInputs.cache
+E:\MyWork\TestsWorks\ASTTree\AST\obj\Debug\SnippetTest.exe
+E:\MyWork\TestsWorks\ASTTree\AST\obj\Debug\SnippetTest.pdb

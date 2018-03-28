@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASTNode", "ASTNode\ASTNode.csproj", "{8D625050-F1D4-450F-9999-F996D644EB79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASTTree", "AST\ASTTree.csproj", "{BDAEFF86-9C71-41FE-AA93-F7C0DDC0CC82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{E4B5C3B5-AB1D-45CD-95A1-3ED161914A75}"
+	ProjectSection(SolutionItems) = preProject
+		Kofax Test Task C# console.docx = Kofax Test Task C# console.docx
+		Задание.txt = Задание.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVersion", "MyVersion\MyVersion.csproj", "{53D35E02-A6AD-4D10-A11D-94F94295F59A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D625050-F1D4-450F-9999-F996D644EB79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D625050-F1D4-450F-9999-F996D644EB79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D625050-F1D4-450F-9999-F996D644EB79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D625050-F1D4-450F-9999-F996D644EB79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDAEFF86-9C71-41FE-AA93-F7C0DDC0CC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDAEFF86-9C71-41FE-AA93-F7C0DDC0CC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDAEFF86-9C71-41FE-AA93-F7C0DDC0CC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDAEFF86-9C71-41FE-AA93-F7C0DDC0CC82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D35E02-A6AD-4D10-A11D-94F94295F59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D35E02-A6AD-4D10-A11D-94F94295F59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D35E02-A6AD-4D10-A11D-94F94295F59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D35E02-A6AD-4D10-A11D-94F94295F59A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBF54EB5-5E95-4292-94C0-567F21B81764}
+	EndGlobalSection
+EndGlobal

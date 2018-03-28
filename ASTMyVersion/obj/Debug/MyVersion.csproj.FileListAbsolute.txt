@@ -1,0 +1,7 @@
+E:\MyWork\TestsWorks\ASTTree\MyVersion\bin\Debug\MyVersion.exe.config
+E:\MyWork\TestsWorks\ASTTree\MyVersion\bin\Debug\MyVersion.exe
+E:\MyWork\TestsWorks\ASTTree\MyVersion\bin\Debug\MyVersion.pdb
+E:\MyWork\TestsWorks\ASTTree\MyVersion\obj\Debug\MyVersion.csproj.CoreCompileInputs.cache
+E:\MyWork\TestsWorks\ASTTree\MyVersion\obj\Debug\MyVersion.exe
+E:\MyWork\TestsWorks\ASTTree\MyVersion\obj\Debug\MyVersion.pdb
+E:\MyWork\TestsWorks\ASTTree\MyVersion\obj\Debug\MyVersion.csprojResolveAssemblyReference.cache

@@ -1,0 +1,12 @@
+J:\MyWork\test\SnippetTest\SnippetTest\bin\Release\SnippetTest.exe.config
+J:\MyWork\test\SnippetTest\SnippetTest\bin\Release\SnippetTest.exe
+J:\MyWork\test\SnippetTest\SnippetTest\bin\Release\SnippetTest.pdb
+J:\MyWork\test\SnippetTest\SnippetTest\obj\Release\ASTTree.csproj.CoreCompileInputs.cache
+J:\MyWork\test\SnippetTest\SnippetTest\obj\Release\SnippetTest.exe
+J:\MyWork\test\SnippetTest\SnippetTest\obj\Release\SnippetTest.pdb
+E:\MyWork\TestsWorks\ASTTree\AST\bin\Release\SnippetTest.exe.config
+E:\MyWork\TestsWorks\ASTTree\AST\bin\Release\SnippetTest.exe
+E:\MyWork\TestsWorks\ASTTree\AST\bin\Release\SnippetTest.pdb
+E:\MyWork\TestsWorks\ASTTree\AST\obj\Release\ASTTree.csproj.CoreCompileInputs.cache
+E:\MyWork\TestsWorks\ASTTree\AST\obj\Release\SnippetTest.exe
+E:\MyWork\TestsWorks\ASTTree\AST\obj\Release\SnippetTest.pdb
