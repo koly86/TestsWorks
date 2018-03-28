@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		Задание.txt = Задание.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVersion", "MyVersion\MyVersion.csproj", "{53D35E02-A6AD-4D10-A11D-94F94295F59A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVersion", "ASTMyVersion\MyVersion.csproj", "{53D35E02-A6AD-4D10-A11D-94F94295F59A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
