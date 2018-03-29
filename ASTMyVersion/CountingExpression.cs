@@ -6,6 +6,7 @@ namespace MyVersion
     {
         private readonly char[] _expression;
         private int resultinBrackets;
+      
 
         public CountingExpression(char[] expression)
         {
@@ -47,6 +48,7 @@ namespace MyVersion
 
                     if (ToChecksymbolsInsideBrackets())
                     {
+                        i += 4;
                         do
                         {
                             switch (_expression[i])
@@ -92,7 +94,11 @@ namespace MyVersion
                     {
                         c++;
                         Console.WriteLine($@"{_expression[t]} c = {c}");
-                        if (_expression[t] == ')') return c > 5;
+                        if (_expression[t] == ')')
+                        {
+                            
+                            return c > 5;
+                        }
                     }
 
                 }
