@@ -22,17 +22,18 @@ namespace MyVersion
                     switch (_expression[i + 2]) //прибавляем к скобке 2 знака, саму скобку и число
                     {
                         case '+':
-                            Console.WriteLine($@" - 1 {_expression[i + 1]}  + {_expression[i + 3]}");
-                            c += _expression[i + 1] + _expression[i + 3];
+                           
+                            c += Convert.ToInt32(_expression[i + 1].ToString()) +Convert.ToInt32(_expression[i + 3].ToString());
+                            Console.WriteLine($@" - 1 {_expression[i + 1]}  + {_expression[i + 3]}= {c}");
                             break;
                         case '-':
-                            c += _expression[i - 1] - _expression[i + 1];
+                            c += _expression[i + 1] - _expression[i + 3];
                             break;
                         case '/':
-                            c += _expression[i - 1] / _expression[i + 1];
+                            c += _expression[i + 1] / _expression[i + 3];
                             break;
                         case '*':
-                            c += _expression[i - 1] * _expression[i + 1];
+                            c += _expression[i + 1] * _expression[i + 3];
                             break;
 
 

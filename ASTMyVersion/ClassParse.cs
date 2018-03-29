@@ -21,19 +21,20 @@ namespace MyVersion
                         if (expression[i] == t)
                         {
                             arrOfExpression[i] = t;
-                            Console.WriteLine($@"operation {t}");
+                           // Console.WriteLine($@"operation {t}");
                         }
 
                     foreach (var t1 in _numbers)
                         if (expression[i] == t1)
                         {
                             arrOfExpression[i] = t1;
-                            Console.WriteLine($@"number  {t1}");
+                           // Console.WriteLine($@"number  {t1}");
                         }
                 }
 
             Console.WriteLine();
             foreach (var ex in arrOfExpression) Console.Write(ex);
+            Console.WriteLine();
             ArrOfExpression = arrOfExpression;
         }
 
