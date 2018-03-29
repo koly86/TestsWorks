@@ -25,8 +25,7 @@ namespace MyVersion
                             //преобразуем в стринг и потом в инт, что бы сложить 2 числа
                             c += Convert.ToInt32(_expression[i + 1].ToString()) +
                                  Convert.ToInt32(_expression[i + 3].ToString());
-                            Console.WriteLine($@" - 1 {_expression[i + 1]}  + {_expression[i + 3]}= {c}");
-                            break;
+                             break;
                         case '-':
                             c += Convert.ToInt32(_expression[i + 1].ToString()) -
                                  Convert.ToInt32(_expression[i + 3].ToString());
@@ -87,16 +86,15 @@ namespace MyVersion
             for (var i = 0; i < _expression.Length; i++)
                 if (_expression[i] == '(')
                 {
-                    Console.WriteLine($@"{_expression[i]} i = {i}");
+                    
+                    Console.WriteLine($@"{_expression[i]} c = {c}");
                     for (var t = i + 1; t < _expression.Length; t++)
                     {
-                        Console.WriteLine($@"{_expression[t]} t = {t}");
-                        if (_expression[t] == ')')
-                            if (t > 5) // 5 - количество знаков в скобках, если в скобках больше знаков
-                                return true;
-                            else
-                                return false;
+                        c++;
+                        Console.WriteLine($@"{_expression[t]} c = {c}");
+                        if (_expression[t] == ')') return c > 5;
                     }
+
                 }
 
             return false;
