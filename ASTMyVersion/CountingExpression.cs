@@ -22,18 +22,23 @@ namespace MyVersion
                     switch (_expression[i + 2]) //прибавляем к скобке 2 знака, саму скобку и число
                     {
                         case '+':
-                           
-                            c += Convert.ToInt32(_expression[i + 1].ToString()) +Convert.ToInt32(_expression[i + 3].ToString());
+                            //преобразуем в стринг и потом в инт, что бы сложить 2 числа
+                            c += Convert.ToInt32(_expression[i + 1].ToString()) +
+                                 Convert.ToInt32(_expression[i + 3].ToString());
                             Console.WriteLine($@" - 1 {_expression[i + 1]}  + {_expression[i + 3]}= {c}");
                             break;
                         case '-':
-                            c += _expression[i + 1] - _expression[i + 3];
+                            c += Convert.ToInt32(_expression[i + 1].ToString()) -
+                                 Convert.ToInt32(_expression[i + 3].ToString());
                             break;
                         case '/':
-                            c += _expression[i + 1] / _expression[i + 3];
+                            c += Convert.ToInt32(_expression[i + 1].ToString()) /
+                                 Convert.ToInt32(_expression[i + 3].ToString());
                             break;
                         case '*':
-                            c += _expression[i + 1] * _expression[i + 3];
+                            c += Convert.ToInt32(_expression[i + 1].ToString()) *
+                                 Convert.ToInt32(_expression[i + 3].ToString());
+
                             break;
 
 
@@ -48,16 +53,16 @@ namespace MyVersion
                             switch (_expression[i])
                             {
                                 case '+':
-                                    c += _expression[i + 1];
+                                    c += Convert.ToInt32(_expression[i + 1].ToString());
                                     break;
                                 case '-':
-                                    c -= _expression[i + 1];
+                                    c -= Convert.ToInt32(_expression[i + 1].ToString());
                                     break;
                                 case '/':
-                                    c /= _expression[i + 1];
+                                    c /= Convert.ToInt32(_expression[i + 1].ToString());
                                     break;
                                 case '*':
-                                    c *= _expression[i + 1];
+                                    c *= Convert.ToInt32(_expression[i + 1].ToString());
                                     break;
 
                                 default:
@@ -70,7 +75,9 @@ namespace MyVersion
                         Console.WriteLine($@"in brackets more than 1 operator {c}");
                     }
                     else
+                    {
                         Console.WriteLine($@"in brackets 1 operator = {c}");
+                    }
                 }
         }
 
