@@ -65,28 +65,31 @@ namespace MyVersion
 
                             i++;
                         } while (_expression[i] != ')');
+
+                        Console.WriteLine($@"in brackets more than 1 operator {c}");
                     }
                     else
-                    {
-                        Console.WriteLine($@"answer in brackets = {c}");
-                    }
+                        Console.WriteLine($@"in brackets 1 operator = {c}");
                 }
-
-
-            Console.WriteLine($@"answer in brackets = {c}");
         }
 
         public bool ToChecksymbolsInsideBrackets()
         {
             var c = 0;
-            foreach (var t in _expression)
-                if (t == '(')
+            for (var i = 0; i < _expression.Length; i++)
+                if (_expression[i] == '(')
                 {
-
+                    Console.WriteLine($@"{_expression[i]} i = {i}");
+                    for (var t = i + 1; t < _expression.Length; t++)
+                    {
+                        Console.WriteLine($@"{_expression[t]} t = {t}");
+                        if (_expression[t] == ')')
+                            if (t > 5) // 5 - количество знаков в скобках, если в скобках больше знаков
+                                return true;
+                            else
+                                return false;
+                    }
                 }
-
-                   
-
 
             return false;
         }
