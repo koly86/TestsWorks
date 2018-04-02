@@ -6,6 +6,7 @@ namespace MyVersion
     {
         private readonly char[] _expression;
         private int resultinBrackets;
+        private byte numberOfBrackets; //количество скобок
       
 
         public CountingExpression(char[] expression)
@@ -19,6 +20,7 @@ namespace MyVersion
             var c = 0;
             for (var i = 0; i < _expression.Length; i++)
                 if (_expression[i] == '(')
+                   
                 {
                     switch (_expression[i + 2]) //прибавляем к скобке 2 знака, саму скобку и число
                     {
@@ -104,6 +106,11 @@ namespace MyVersion
                 }
 
             return false;
+        }
+
+        private void CountBrackets()
+        {
+
         }
     }
 }
