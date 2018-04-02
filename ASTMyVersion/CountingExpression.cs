@@ -5,8 +5,13 @@ namespace MyVersion
     public class CountingExpression
     {
         private readonly char[] _expression;
-        private int resultinBrackets;
-      
+        private int _bracketsPosition;
+        private byte _callCount;
+        private int _id;
+        private int _idEnd;
+        private int _idStart;
+        private int _result;
+        private char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
         public CountingExpression(char[] expression)
         {
@@ -16,91 +21,155 @@ namespace MyVersion
 
         private void Count()
         {
-            var c = 0;
-            for (var i = 0; i < _expression.Length; i++)
-                if (_expression[i] == '(')
+           
+            for (_id = _idEnd; _id < _expression.Length; _id++)
+                switch (_expression[_id])
                 {
-                    switch (_expression[i + 2]) //прибавляем к скобке 2 знака, саму скобку и число
-                    {
-                        case '+':
-                            //преобразуем в стринг и потом в инт, что бы сложить 2 числа
-                            c += Convert.ToInt32(_expression[i + 1].ToString()) +
-                                 Convert.ToInt32(_expression[i + 3].ToString());
-                             break;
-                        case '-':
-                            c += Convert.ToInt32(_expression[i + 1].ToString()) -
-                                 Convert.ToInt32(_expression[i + 3].ToString());
-                            break;
-                        case '/':
-                            c += Convert.ToInt32(_expression[i + 1].ToString()) /
-                                 Convert.ToInt32(_expression[i + 3].ToString());
-                            break;
-                        case '*':
-                            c += Convert.ToInt32(_expression[i + 1].ToString()) *
-                                 Convert.ToInt32(_expression[i + 3].ToString());
-
-                            break;
-
-
-                        default:
-                            break;
-                    }
-
-                    if (ToChecksymbolsInsideBrackets())
-                    {
-                        i += 4;
-                        do
-                        {
-                            switch (_expression[i])
+                    case '(':
+                        _idStart = _id + 2; //прибавляем цифру и скобку
+                        for (_id = ++_id; _id < _expression.Length; _id++)
+                            if (_expression[_id] == ')')
                             {
-                                case '+':
-                                    c += Convert.ToInt32(_expression[i + 1].ToString());
-                                    break;
-                                case '-':
-                                    c -= Convert.ToInt32(_expression[i + 1].ToString());
-                                    break;
-                                case '/':
-                                    c /= Convert.ToInt32(_expression[i + 1].ToString());
-                                    break;
-                                case '*':
-                                    c *= Convert.ToInt32(_expression[i + 1].ToString());
-                                    break;
-
-                                default:
-                                    break;
+                                _idEnd = _id;
+                                CountingInsideBrackets(_callCount++);
+                                return;
                             }
 
-                            i++;
-                        } while (_expression[i] != ')');
-
-                        Console.WriteLine($@"in brackets more than 1 operator {c}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($@"in brackets 1 operator = {c}");
-                    }
+                        break;
+               
+                    case ')': Count();
+                        break;
+                    case '+':
+                        if (_expression[_id+1]=='(' || _expression[_id+1] == ')')
+                        {
+                            _idEnd = _idEnd + 1;
+                            Count();
+                            _result += Convert.ToInt32(_expression[_id].ToString());
+                            Console.WriteLine($@"result of count {_result}");
+                        }
+                        break;
                 }
+            //(_expression[_id] != '(' && _expression[_id] != ')')
+            //        for (; _id < _expression.Length; _id++)
+            //        {
+            //            _idStart = _id + 1; // прибавляем только цифру
+            //            for (_id = ++_id; _id < _expression.Length; _id++)
+            //                if (_expression[_id] == '(' || _expression[_id] == ')')
+            //                {
+            //                    _idEnd = _id;
+            //                    CountingInsideBrackets(_callCount++);
+            //                }
+            //                else
+            //                {
+            //                    _idEnd = _id;
+            //                }
+            //        }
+
+            //if (_expression[_id] == '(')
+            //    FindBrackets();
+           
+        }
+
+
+        private void FindBrackets()
+        {
+            for (; _id < _expression.Length; _id++)
+                if (_expression[_id] == '(')
+                {
+                    _bracketsPosition = _id;
+                    Console.WriteLine($@"brackets position = {_id} = {_expression[_id]}");
+                }
+        }
+
+        private void CountingInsideBrackets(byte call)
+        {
+            for (var i = _idStart; i < _idEnd; i++)
+                switch (call)
+                {
+                    case 0:
+                        switch (_expression[i])
+                        {
+                            case '+':
+                                _result += Convert.ToInt32(_expression[i - 1].ToString()) +
+                                           Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                            case '-':
+                                _result += Convert.ToInt32(_expression[i - 1].ToString()) -
+                                           Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                            case '/':
+                                _result += Convert.ToInt32(_expression[i - 1].ToString()) /
+                                           Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                            case '*':
+                                _result += Convert.ToInt32(_expression[i - 1].ToString()) *
+                                           Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                        }
+
+                        call++;
+                        break;
+                    default:
+                        switch (_expression[i])
+                        {
+                            case '(':
+                            case ')':
+                                return;
+
+                            case '+':
+                                _result += Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                            case '-':
+                                _result -= Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                            case '*':
+                                _result *= Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                            case '/':
+                                _result /= Convert.ToInt32(_expression[i + 1].ToString());
+                                _idEnd = _idEnd + 1;
+                                Console.WriteLine($@"result of count {_result}");
+                                break;
+                        }
+
+                        break;
+                }
+
+
+            Count();
+
+            Console.WriteLine($@"result of count {_result}");
         }
 
         public bool ToChecksymbolsInsideBrackets()
         {
             var c = 0;
-            for (var i = 0; i < _expression.Length; i++)
+            for (var i = 0;
+                i < _expression.Length;
+                i++)
                 if (_expression[i] == '(')
                 {
-                    
                     Console.WriteLine($@"{_expression[i]} c = {c}");
                     for (var t = i + 1; t < _expression.Length; t++)
                     {
                         c++;
                         Console.WriteLine($@"{_expression[t]} c = {c}");
-                        if (_expression[t] == ')')
-                        {
-                            
-                            return c > 5;
-                        }
+                        if (_expression[t] == ')') return c > 5;
                     }
-
                 }
 
             return false;
