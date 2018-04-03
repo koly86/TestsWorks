@@ -11,7 +11,7 @@ namespace MyVersion
         private int _idEnd;
         private int _idStart;
         private int _result;
-        private char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        private readonly char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
         public CountingExpression(char[] expression)
         {
@@ -21,67 +21,42 @@ namespace MyVersion
 
         private void Count()
         {
-           
             for (_id = _idEnd; _id < _expression.Length; _id++)
                 switch (_expression[_id])
                 {
                     case '(':
                         _idStart = _id + 2; //прибавляем цифру и скобку
-                        for (_id = ++_id; _id < _expression.Length; _id++)
-                            if (_expression[_id] == ')')
+                        foreach (var n in numbers)
+                            if (_expression[_id + 1] == n)
+                                for (_id = ++_id; _id < _expression.Length; _id++)
+                                    if (_expression[_id] == ')')
+                                    {
+                                        _idEnd = _id;
+                                        Console.WriteLine(CountingInsideBrackets(_callCount++));
+                                        return;
+                                    }
+
+
+                        break;
+
+                    case ')':
+                        _idEnd = _idEnd + 1;
+                        Count();
+                        break;
+
+                        break;
+                    default:
+                        foreach (var n in numbers)
+                            if (_expression[_id] == n)
                             {
-                                _idEnd = _id;
-                                CountingInsideBrackets(_callCount++);
-                                return;
                             }
 
                         break;
-               
-                    case ')': Count();
-                        break;
-                    case '+':
-                        if (_expression[_id+1]=='(' || _expression[_id+1] == ')')
-                        {
-                            _idEnd = _idEnd + 1;
-                            Count();
-                            _result += Convert.ToInt32(_expression[_id].ToString());
-                            Console.WriteLine($@"result of count {_result}");
-                        }
-                        break;
-                }
-            //(_expression[_id] != '(' && _expression[_id] != ')')
-            //        for (; _id < _expression.Length; _id++)
-            //        {
-            //            _idStart = _id + 1; // прибавляем только цифру
-            //            for (_id = ++_id; _id < _expression.Length; _id++)
-            //                if (_expression[_id] == '(' || _expression[_id] == ')')
-            //                {
-            //                    _idEnd = _id;
-            //                    CountingInsideBrackets(_callCount++);
-            //                }
-            //                else
-            //                {
-            //                    _idEnd = _id;
-            //                }
-            //        }
-
-            //if (_expression[_id] == '(')
-            //    FindBrackets();
-           
-        }
-
-
-        private void FindBrackets()
-        {
-            for (; _id < _expression.Length; _id++)
-                if (_expression[_id] == '(')
-                {
-                    _bracketsPosition = _id;
-                    Console.WriteLine($@"brackets position = {_id} = {_expression[_id]}");
                 }
         }
 
-        private void CountingInsideBrackets(byte call)
+
+        private int CountingInsideBrackets(byte call)
         {
             for (var i = _idStart; i < _idEnd; i++)
                 switch (call)
@@ -122,7 +97,7 @@ namespace MyVersion
                         {
                             case '(':
                             case ')':
-                                return;
+                                return 0;
 
                             case '+':
                                 _result += Convert.ToInt32(_expression[i + 1].ToString());
@@ -152,7 +127,7 @@ namespace MyVersion
 
             Count();
 
-            Console.WriteLine($@"result of count {_result}");
+            return _result;
         }
 
         public bool ToChecksymbolsInsideBrackets()
