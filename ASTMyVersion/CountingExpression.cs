@@ -32,57 +32,68 @@ namespace MyVersion
                             {
                                 //проверяем что после скобки идет скобка
                                 case '(':
-                                    Console.WriteLine($@" ( = {_expression[_id]}");
+
 
                                     break;
                                 //проверяем что после скобки идет цифра
                                 case char n when n >= '0' && n <= '9':
-                                    Console.WriteLine($@"number = {n}");
+                                   
                                     //если идет цира проверяем что после циры идет знак
                                     for (_id = ++_id; _id < _expression.Length; _id++)
                                         switch (_expression[_id])
                                         {
-                                            case char g when (g == '+' || g == '-' || g == '*' || g == '/'):
+                                            case char g when g == '+' || g == '-' || g == '*' || g == '/':
                                                 //если идет знак проверяем что после знака идет цифра
                                                 for (_id = ++_id; _id < _expression.Length; _id++)
                                                     switch (_expression[_id])
                                                     {
-                                                        //если идет цифра 
-                                                        case char u when (u >= '0' && n <= '9'):
+                                                        //если идет цифра тогда выполняем вычесление
+                                                        case char u when u >= '0' && n <= '9':
                                                             switch (g)
                                                             {
                                                                 case '+':
-                                                                    _result += Convert.ToInt32(_expression[_id - 1]
+                                                                    _result += Convert.ToInt32(_expression[_id - 2]
                                                                                    .ToString()) +
-                                                                               Convert.ToInt32(_expression[_id + 1]
+                                                                               Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
+                                                                    _idEnd = _id + 1;
+                                                                    Count();
+
                                                                     break;
                                                                 case '-':
-                                                                    _result += Convert.ToInt32(_expression[_id - 1]
+                                                                    _result += Convert.ToInt32(_expression[_id - 2]
                                                                                    .ToString()) -
-                                                                               Convert.ToInt32(_expression[_id + 1]
+                                                                               Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
+                                                                    _idEnd = _id + 1;
+                                                                    Count();
                                                                     break;
                                                                 case '/':
-                                                                    _result += Convert.ToInt32(_expression[_id - 1]
+                                                                    _result += Convert.ToInt32(_expression[_id - 2]
                                                                                    .ToString()) /
-                                                                               Convert.ToInt32(_expression[_id + 1]
+                                                                               Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
+                                                                    _idEnd = _id + 1;
+                                                                    Count();
                                                                     break;
                                                                 case '*':
-                                                                    _result += Convert.ToInt32(_expression[_id - 1]
+                                                                    _result += Convert.ToInt32(_expression[_id - 2]
                                                                                    .ToString()) *
-                                                                               Convert.ToInt32(_expression[_id + 1]
+                                                                               Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
+                                                                    _idEnd = _id + 1;
+                                                                    Count();
                                                                     break;
                                                             }
+
                                                             break;
                                                     }
-                                                    
+
                                                 break;
                                             case '(':
                                                 //если идет скобка перевызов функции
-                                                Count();  break;
+                                                Count();
+                                                break;
                                         }
                                     break;
                             }
@@ -91,17 +102,33 @@ namespace MyVersion
                         break;
 
                     case ')':
+                        _idEnd = _id + 1;
                         Count();
                         break;
-                    case '+':
-                        if (_expression[_id + 1] == '(' || _expression[_id + 1] == ')')
+                    case char g when g == '+' || g == '-' || g == '*' || g == '/':
+                        switch (g)
                         {
-                            _idEnd = _idEnd + 1;
-                            Count();
-                            _result += Convert.ToInt32(_expression[_id].ToString());
-                            Console.WriteLine($@"result of count {_result}");
+                            case '+':
+                                _result += _expression[_id + 1];
+                                _idEnd = _id + 2;
+                                Count();
+                                break;
+                            case '-':
+                                _result -= _expression[_id + 1];
+                                _idEnd = _id + 2;
+                                Count();
+                                break;
+                            case '/':
+                                _result /= _expression[_id + 1];
+                                _idEnd = _id + 2;
+                                Count();
+                                break;
+                            case '*':
+                                _result *= _expression[_id + 1];
+                                _idEnd = _id + 2;
+                                Count();
+                                break;
                         }
-
                         break;
                 }
             //(_expression[_id] != '(' && _expression[_id] != ')')
@@ -122,6 +149,8 @@ namespace MyVersion
 
             //if (_expression[_id] == '(')
             //    FindBrackets();
+            Console.WriteLine(_result);
+           
         }
 
 
