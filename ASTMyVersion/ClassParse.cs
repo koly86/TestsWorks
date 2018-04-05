@@ -8,8 +8,7 @@ namespace MyVersion
         private readonly char[] _numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
         private readonly char[] _operations = {'+', '-', '/', '*', '(', ')'};
         public char[] ArrOfExpression { get; set; }
-        private int c; //считаем количество пустых полей в массиве
-
+     
         public ClassParse(string expression)
         {
            
@@ -34,7 +33,7 @@ namespace MyVersion
             Console.WriteLine();
             for (var i = 0; i < arrOfExpression.Length; i++)
               if (arrOfExpression[i] == 0)
-                  c++;
+                  //c++;
 
             foreach (var ex in arrOfExpression)
             {
