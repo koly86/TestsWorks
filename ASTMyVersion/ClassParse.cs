@@ -7,37 +7,42 @@ namespace MyVersion
     {
         private readonly char[] _numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
         private readonly char[] _operations = {'+', '-', '/', '*', '(', ')'};
-
         public char[] ArrOfExpression { get; set; }
-        private readonly string _expression;
-        public char[] _arrOfExpression { get; set; }
-        private int c; //считаем количество пустых полей в массиве
-
+     
         public ClassParse(string expression)
         {
-            _expression = expression;
-            _arrOfExpression = new char[expression.Length];
-            ToFillNewArray();
-            _arrOfExpression = null;
-            _arrOfExpression = new char[c];
-            c = 0;
-            ToFillNewArray();
+           
+            var arrOfExpression = new char[expression.Length];
 
-            
+            for (var i = 0; i < expression.Length; i++)
+                if (!expression[i].Equals(null) && !expression[i].Equals(0) )
+                {
+                    foreach (var t in _operations)
+                        if (expression[i] == t)
+                        {
+                            arrOfExpression[i] = t;
+                        }
+
+                    foreach (var t1 in _numbers)
+                        if (expression[i] == t1)
+                        {
+                            arrOfExpression[i] = t1;
+                        }
+                }
 
             Console.WriteLine();
-            foreach (var t in _arrOfExpression)
-                if (t == 0)
-                    c++;
-            
+            for (var i = 0; i < arrOfExpression.Length; i++)
+              if (arrOfExpression[i] == 0)
+                  //c++;
 
-            foreach (var ex in _arrOfExpression)
+            foreach (var ex in arrOfExpression)
             {
                 Console.Write(ex);
             }
 
+           // 
             Console.WriteLine();
-            ArrOfExpression = _arrOfExpression;
+            ArrOfExpression = arrOfExpression;
         }
 
         
@@ -48,27 +53,6 @@ namespace MyVersion
             Console.WriteLine("You Must inkput expression");
         }
 
-        private void ToFillNewArray()
-        {
-            for (var i = 0; i < _expression.Length; i++)
-                if (!_expression[i].Equals(null))
-                {
-                    foreach (var t in _operations)
-                        if (_expression[i] == t)
-                        {
-                            
-                            _arrOfExpression[c] = t;
-                            c++;
-                        }
-
-                    foreach (var t1 in _numbers)
-                        if (_expression[i] == t1)
-                        {
-                           
-                            _arrOfExpression[c] = t1;
-                            c++;
-                        }
-                }
-        }
+        
     }
 }

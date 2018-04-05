@@ -11,6 +11,7 @@ namespace MyVersion
         private int _idEnd;
         private int _idStart;
         private int _result;
+       
         private char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
         public CountingExpression(char[] expression)
@@ -22,6 +23,7 @@ namespace MyVersion
         private void Count()
         {
             for (_id = _idEnd; _id < _expression.Length; _id++)
+
                 switch (_expression[_id])
                 {
                     case '(':
@@ -32,12 +34,10 @@ namespace MyVersion
                             {
                                 //проверяем что после скобки идет скобка
                                 case '(':
-
-
                                     break;
                                 //проверяем что после скобки идет цифра
                                 case char n when n >= '0' && n <= '9':
-                                   
+
                                     //если идет цира проверяем что после циры идет знак
                                     for (_id = ++_id; _id < _expression.Length; _id++)
                                         switch (_expression[_id])
@@ -56,33 +56,28 @@ namespace MyVersion
                                                                                    .ToString()) +
                                                                                Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
-                                                                    _idEnd = _id + 1;
-                                                                    Count();
 
-                                                                    break;
+                                                                    continue;
                                                                 case '-':
                                                                     _result += Convert.ToInt32(_expression[_id - 2]
                                                                                    .ToString()) -
                                                                                Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
-                                                                    _idEnd = _id + 1;
-                                                                    Count();
+
                                                                     break;
                                                                 case '/':
                                                                     _result += Convert.ToInt32(_expression[_id - 2]
                                                                                    .ToString()) /
                                                                                Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
-                                                                    _idEnd = _id + 1;
-                                                                    Count();
+
                                                                     break;
                                                                 case '*':
                                                                     _result += Convert.ToInt32(_expression[_id - 2]
                                                                                    .ToString()) *
                                                                                Convert.ToInt32(_expression[_id]
                                                                                    .ToString());
-                                                                    _idEnd = _id + 1;
-                                                                    Count();
+
                                                                     break;
                                                             }
 
@@ -92,7 +87,7 @@ namespace MyVersion
                                                 break;
                                             case '(':
                                                 //если идет скобка перевызов функции
-                                                Count();
+
                                                 break;
                                         }
                                     break;
@@ -102,55 +97,70 @@ namespace MyVersion
                         break;
 
                     case ')':
-                        _idEnd = _id + 1;
-                        Count();
+
+
                         break;
                     case char g when g == '+' || g == '-' || g == '*' || g == '/':
                         switch (g)
                         {
                             case '+':
-                                _result += _expression[_id + 1];
-                                _idEnd = _id + 2;
-                                Count();
+                                _result += Convert.ToInt32(_expression[_id + 1].ToString());
+                                _id++;
+
                                 break;
                             case '-':
-                                _result -= _expression[_id + 1];
-                                _idEnd = _id + 2;
-                                Count();
+                                _result -= Convert.ToInt32(_expression[_id + 1].ToString());
+                                _id++;
+
                                 break;
                             case '/':
-                                _result /= _expression[_id + 1];
-                                _idEnd = _id + 2;
-                                Count();
+                                _result /= Convert.ToInt32(_expression[_id + 1].ToString());
+                                _id++;
+
                                 break;
                             case '*':
-                                _result *= _expression[_id + 1];
-                                _idEnd = _id + 2;
-                                Count();
+                                _result *= Convert.ToInt32(_expression[_id + 1].ToString());
+                                _id++;
                                 break;
                         }
-                        break;
-                }
-            //(_expression[_id] != '(' && _expression[_id] != ')')
-            //        for (; _id < _expression.Length; _id++)
-            //        {
-            //            _idStart = _id + 1; // прибавляем только цифру
-            //            for (_id = ++_id; _id < _expression.Length; _id++)
-            //                if (_expression[_id] == '(' || _expression[_id] == ')')
-            //                {
-            //                    _idEnd = _id;
-            //                    CountingInsideBrackets(_callCount++);
-            //                }
-            //                else
-            //                {
-            //                    _idEnd = _id;
-            //                }
-            //        }
 
-            //if (_expression[_id] == '(')
-            //    FindBrackets();
+                        break;
+                    //если первая цифра то проверяем, что после цифры
+                    case char n when n >= '0' && n <= '9':
+                        if (_id + 2 < _expression.Length)
+                        {
+
+                            switch (_expression[_id + 1])
+                            {
+                                //если знак
+                                case char g when g == '+' || g == '-' || g == '*' || g == '/':
+                                    //то смотрим что после знака
+                                    switch (_expression[_id + 2])
+                                    {
+                                        //если скобка отправляем на там где начинается со скобки
+                                        case '(': break;
+                                        //если цифра отправляем так где начинается с цифры
+                                        case char v when v >= '0' && v <= '9':
+                                            _result = Convert.ToInt32(_expression[_id].ToString());
+                                            break;
+                                    }
+
+                                    break;
+                            }
+                        }
+                        else
+                        {
+
+                        }
+
+
+
+
+                        break;
+
+                }
+
             Console.WriteLine(_result);
-           
         }
 
 
