@@ -12,3 +12,10 @@ C:\MyWork\TestsWorks\ASTMyVersion\obj\Debug\MyVersion.csprojResolveAssemblyRefer
 C:\MyWork\TestsWorks\ASTMyVersion\obj\Debug\MyVersion.csproj.CoreCompileInputs.cache
 C:\MyWork\TestsWorks\ASTMyVersion\obj\Debug\MyVersion.exe
 C:\MyWork\TestsWorks\ASTMyVersion\obj\Debug\MyVersion.pdb
+E:\MyWork\CSharp\TestsWorks\in process\ASTTree\ASTMyVersion\bin\Debug\MyVersion.exe.config
+E:\MyWork\CSharp\TestsWorks\in process\ASTTree\ASTMyVersion\bin\Debug\MyVersion.exe
+E:\MyWork\CSharp\TestsWorks\in process\ASTTree\ASTMyVersion\bin\Debug\MyVersion.pdb
+E:\MyWork\CSharp\TestsWorks\in process\ASTTree\ASTMyVersion\obj\Debug\MyVersion.csproj.CoreCompileInputs.cache
+E:\MyWork\CSharp\TestsWorks\in process\ASTTree\ASTMyVersion\obj\Debug\MyVersion.exe
+E:\MyWork\CSharp\TestsWorks\in process\ASTTree\ASTMyVersion\obj\Debug\MyVersion.pdb
+E:\MyWork\CSharp\TestsWorks\in process\ASTTree\ASTMyVersion\obj\Debug\MyVersion.csprojResolveAssemblyReference.cache
